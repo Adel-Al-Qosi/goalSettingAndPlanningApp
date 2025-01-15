@@ -1,4 +1,5 @@
 import './LandingPage.css';
+import CustomButton from '../../components/CustomButton/CustomButton';
 
 const LandingPage = () => {
     return (
@@ -17,7 +18,7 @@ const LandingPage = () => {
                     </ul>
                 </section>
                 <section className="cta">
-                    <button className="cta-button">Get Started</button>
+                    <CustomButton text="Get Started" link="/brain-storming" type='get-started' />
                 </section>
             </main>
         </div>
