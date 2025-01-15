@@ -9,7 +9,7 @@ const BrainStormingPage = () => {
     const [ideas, setIdeas] = useState([]);
     const [placeholder, setPlaceholder] = useState('Enter your idea here');
 
-    const deleteIdea = (index) => {
+    const deleteIdea = (e, index) => {
         const newIdeas = ideas.filter((idea, i) => i !== index);
         setIdeas(newIdeas);
     }
@@ -57,7 +57,7 @@ const BrainStormingPage = () => {
                     }
                     placeholder={placeholder}
                 />
-                <button disabled={isEditing} className='brain-storming-button' type='submit' onClick={(e) => saveIdea(e)}>Save Idea</button>
+                <button disabled={isEditing} className='brain-storming-button' onClick={(e) => saveIdea(e)}>Save Idea</button>
             </form>
             <div className='brain-storming-control-pages'>
                 
