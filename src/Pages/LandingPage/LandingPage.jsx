@@ -5,7 +5,9 @@ const LandingPage = () => {
   return (
     <div className="landing-page">
       <header className="landing-page-header">
-        <h1>Welcome to Goal Setting and Planning App</h1>
+        <h1>
+          Welcome To <br /><span className="name">QuestPath</span>
+        </h1>
         <p>Plan and achieve your goals effectively</p>
       </header>
       <main className="landing-page-main">

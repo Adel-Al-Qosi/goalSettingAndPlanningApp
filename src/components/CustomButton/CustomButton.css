@@ -1,0 +1,33 @@
+.custom-button-get-started {
+  text-decoration: none;
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+  background: var(--clr-primary-500);
+  color: var(--clr-neutral-100);
+  border-radius: 8px;
+  box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  font-weight: var(--fw-semibold);
+  width: 90%;
+  letter-spacing: .05rem;
+}
+
+.custom-button-get-started:hover {
+  background: var(--clr-primary-600);
+  box-shadow: 0 0 1.1rem var(--clr-primary-600);
+}
+
+@media screen and (min-width: 48em) {
+  .custom-button-get-started {
+    width: 80%;
+  }
+}
+
+@media screen and (min-width: 64em) {
+  .custom-button-get-started {
+    width: 30rem;
+  }   
+}
