@@ -12,7 +12,6 @@ const LandingPage = () => {
       </header>
       <main className="landing-page-main">
         <section className="features">
-          <h2>Features</h2>
           <ul>
             <li>Set and track your goals</li>
             <li>Plan your tasks</li>
@@ -22,7 +21,7 @@ const LandingPage = () => {
         <section className="cta">
           <CustomButton
             text="Get Started"
-            link="/brain-storming"
+            link="/instructions"
             type="get-started"
           />
         </section>

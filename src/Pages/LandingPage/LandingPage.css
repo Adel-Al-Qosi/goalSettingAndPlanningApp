@@ -14,18 +14,6 @@
   color: var(--clr-primary-600);
 }
 
-.name {
-  background: linear-gradient(
-    90deg,
-    var(--clr-primary-500),
-    var(--clr-secondary-500)
-  );
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: var(--fw-bold);
-}
-
 .landing-page-header p {
   font-size: 1.2rem;
   color: var(--clr-neutral-500);
@@ -80,7 +68,7 @@
   .features ul {
     display: flex;
     flex-direction: column;
-    width: 80%;
+    width: 60%;
     gap: var(--spacing-md);
   }
 

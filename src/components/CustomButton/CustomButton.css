@@ -20,9 +20,34 @@
   box-shadow: 0 0 1.1rem var(--clr-primary-600);
 }
 
+.custom-button-previous, .custom-button-next {
+  text-decoration: none;
+  padding: calc(var(--spacing-sm) + .3rem) var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+  background: var(--clr-primary-500);
+  color: var(--clr-neutral-100);
+  border-radius: .5rem;
+  box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.1);
+  gap: var(--spacing-sm);
+  font-weight: var(--fw-semibold);
+  letter-spacing: .05rem;
+  width: 35%;
+  max-width: 13rem;
+  text-align: center;
+}
+
+.custom-button-previous:hover, .custom-button-next:hover {
+  background: var(--clr-primary-600);
+  box-shadow: 0 0 1.1rem var(--clr-primary-600);
+}
+
 @media screen and (min-width: 48em) {
   .custom-button-get-started {
-    width: 80%;
+    width: 60%;
+  }
+
+  .custom-button-previous, .custom-button-next {
+    width: 25%;
   }
 }
 

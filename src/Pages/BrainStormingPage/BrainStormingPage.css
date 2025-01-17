@@ -1,0 +1,31 @@
+.brain-storming-page {
+  min-height: 100vh;
+  padding: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+}
+
+.brain-storming-header {
+  text-align: center;
+  padding: var(--spacing-xl) 0;
+}
+
+.brain-storming-h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  margin-bottom: var(--spacing-sm);
+  color: var(--clr-primary-600);
+}
+
+.brain-storming-main {
+  flex: 1;
+  max-width: 50rem;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.brain-storming-ideas {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  gap: var(--spacing-lg);
+  margin: 1.5rem 0;
+}

@@ -43,31 +43,25 @@ const BrainStormingPage = () => {
   return (
     <div className="brain-storming-page">
       <header className="brain-storming-header">
-        <h1 className="brain-storming-h1">QuestPath</h1>
+        <h1 className="brain-storming-h1">
+          <span className="name">QuestPath</span>
+        </h1>
       </header>
       <main className="brain-storming-main">
-        <p className="brain-storming-p-1">
-          In this stage, you will brainstorm ideas for your project. Enter your ideas below.
-        </p>
-        <p className="brain-storming-p-2">
-          You can add as many ideas as you want. Once you are done, click on the "Next Page" button to proceed to the next stage.
-        </p>
-        <p className="brain-storming-p-3">
-          You don't need to worry about the quality of your ideas at this stage. Just write down whatever comes to your mind.
-        </p>
-        <div className="brain-storming-ideas">
+        <section className="brain-storming-ideas">
           {ideas.map((idea, index) => (
             <div key={index} className="brain-storming-idea">
               <Idea
                 isEditing={isEditing}
                 setIsEditing={setIsEditing}
                 idea={idea}
+                ideas={ideas}
                 index={index}
                 deleteIdea={() => deleteIdea(index)}
               />
             </div>
           ))}
-        </div>
+        </section>
         <form className="brain-storming-form">
           <CustomText
             disabled={isEditing}
@@ -85,7 +79,7 @@ const BrainStormingPage = () => {
           </button>
         </form>
         <div className="brain-storming-control-pages">
-          <CustomButton text="Previous Page" link="/home" />
+          <CustomButton text="Previous Page" link="/instructions" />
           <CustomButton
             text="Next Page"
             onClick={handleGoingToNextPage}

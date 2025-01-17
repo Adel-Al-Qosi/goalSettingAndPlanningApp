@@ -82,6 +82,18 @@ select {
   font: inherit;
 }
 
+.name {
+  background: linear-gradient(
+    90deg,
+    var(--clr-primary-500),
+    var(--clr-secondary-500)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: var(--fw-bold);
+}
+
 /* Accessibility */
 @media (prefers-reduced-motion: reduce) {
   *,

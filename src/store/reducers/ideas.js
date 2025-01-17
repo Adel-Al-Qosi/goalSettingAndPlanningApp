@@ -19,6 +19,7 @@ const ideasSlice = createSlice({
       state.entries.push(action.payload);
       state.unfilteredEntries.push(action.payload);
     },
+    
   },
 });
 

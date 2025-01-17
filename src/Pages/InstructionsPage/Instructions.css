@@ -1,0 +1,124 @@
+.instructions-page {
+  min-height: 100vh;
+  padding: var(--spacing-md) var(--spacing-xl);
+  display: flex;
+  flex-direction: column;
+}
+
+.instructions-page-header {
+  text-align: center;
+  padding: var(--spacing-xl) 0;
+}
+
+.instructions-page-header h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  margin-bottom: var(--spacing-sm);
+  color: var(--clr-primary-600);
+}
+
+.instructions-page-main h2 {
+  font-size: clamp(1.5rem, 4vw, 2.3rem);
+  margin-bottom: var(--spacing-lg);
+  font-weight: var(--fw-bold);
+  background: linear-gradient(2deg, var(--clr-primary-500), var(--clr-secondary-500));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.instructions-page-instructions {
+  border-radius: 0.75rem;
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+}
+
+ul {
+  list-style-type: none;
+}
+
+.instructions-page-instructions li {
+  font-size: 1.2rem;
+  color: var(--clr-neutral-500);
+  margin-bottom: var(--spacing-md);
+  padding-left: var(--spacing-xl);
+  position: relative;
+  transition: transform 0.2s ease;
+}
+
+.instructions-page-instructions li:hover {
+  transform: scale(1.05);
+}
+
+.instructions-page-instructions li:nth-child(1)::before {
+  content: "💡";
+  position: absolute;
+  left: 0;
+  color: var(--clr-primary-500);
+}
+
+.instructions-page-instructions li:nth-child(2)::before {
+  content: "✨";
+  position: absolute;
+  left: 0;
+  color: var(--clr-secondary-500);
+}
+
+.instructions-page-instructions li:nth-child(3)::before {
+  content: "🎯";
+  position: absolute;
+  left: 0;
+  color: var(--clr-accent-500);
+}
+
+.instructions-page-instructions li:last-child::before {
+  content: "🚀";
+  position: absolute;
+  left: 0;
+  color: var(--clr-accent-500);
+}
+
+.instructions-page-control {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+@media screen and (min-width: 48em) {
+  .instructions-page {
+    max-width: 50rem;
+    display: flex;
+    margin: auto;
+  }
+
+  .instructions-page-header h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(1.6rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.instructions-page-instructions li:first-child {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.instructions-page-instructions li:nth-child(2) {
+  animation: fadeIn 0.8s ease-out;
+}
+
+.instructions-page-instructions li:nth-child(3) {
+  animation: fadeIn 1s ease-out;
+}
+
+.instructions-page-instructions li:last-child {
+  animation: fadeIn 1.2s ease-out;
+}
