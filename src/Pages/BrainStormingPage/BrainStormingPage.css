@@ -18,14 +18,36 @@
 
 .brain-storming-main {
   flex: 1;
-  max-width: 50rem;
+  max-width: 45rem;
   margin: 0 auto;
   width: 100%;
 }
 
 .brain-storming-ideas {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
   gap: var(--spacing-lg);
   margin: 1.5rem 0;
 }
+
+.brain-storming-control-pages {
+  display: flex;
+  justify-content: space-between;
+}
+
+.brain-storming-button {
+  text-decoration: none;
+  background: linear-gradient(90deg, var(--clr-accent-500), var(--clr-accent-100));
+  color: var(--clr-neutral-100);
+  padding: var(--spacing-md);
+  border-radius: 8px;
+  box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  font-weight: var(--fw-semibold);
+  width: 100%;
+  letter-spacing: .05rem;
+  margin: 2rem 0;
+}
+

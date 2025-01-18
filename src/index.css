@@ -36,6 +36,10 @@
   --clr-neutral-300: #E4E7EB;
   --clr-neutral-400: #CBD2D9;
   --clr-neutral-500: #9AA5B1;
+  --clr-neutral-600: #7B8794;
+  --clr-neutral-700: #616E7C;
+  --clr-neutral-800: #455056;
+  --clr-neutral-900: #29303D;
   
   /* Typography */
   --ff-primary: 'Outfit', sans-serif;

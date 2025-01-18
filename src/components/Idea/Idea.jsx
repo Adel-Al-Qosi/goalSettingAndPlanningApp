@@ -4,10 +4,18 @@ import { loadIdeas } from "../../store/reducers/ideas";
 import CustomText from "../CustomText/CustomText";
 import "./Idea.css";
 
-const Idea = ({ isEditing, setIsEditing, idea, index, deleteIdea, ideas }) => {
+const Idea = ({
+  isEditing,
+  setIsEditing,
+  idea,
+  index,
+  deleteIdea,
+  ideas,
+}) => {
   const [isEditingChild, setIsEditingChild] = useState(false);
   const [newIdea, setNewIdea] = useState(idea);
   const [placeholder, setPlaceholder] = useState("Enter your idea here");
+  const [isDeleting, setIsDeleting] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -38,12 +46,18 @@ const Idea = ({ isEditing, setIsEditing, idea, index, deleteIdea, ideas }) => {
     setIsEditingChild(true);
   };
 
+  const handleDelete = (e) => {
+    e.preventDefault();
+    setIsDeleting(true);
+    deleteIdea(index);
+  };
+
   return (
-    <div className="idea">
+    <div className={"idea" + (isDeleting ? " deleting" : "")}>
       <div className="idea-content">{!isEditingChild && idea}</div>
       {(!isEditingChild && (
         <div className="idea-editing-buttons">
-          <button disabled={isEditing} onClick={(e) => deleteIdea(e, index)}>
+          <button disabled={isEditing} onClick={(e) => handleDelete(e)}>
             Delete
           </button>
           <button disabled={isEditing} onClick={() => handleEdit()}>

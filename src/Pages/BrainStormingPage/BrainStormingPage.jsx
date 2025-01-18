@@ -15,8 +15,10 @@ const BrainStormingPage = () => {
   const [placeholder, setPlaceholder] = useState("Enter your idea here");
 
   const deleteIdea = (index) => {
-    const newIdeas = ideas.filter((_, i) => i !== index);
-    dispatch(loadIdeas(newIdeas));
+    setTimeout(() => {
+      const newIdeas = ideas.filter((_, i) => i !== index);
+      dispatch(loadIdeas(newIdeas));
+    }, 500);
   };
 
   const saveIdea = (e) => {
@@ -48,6 +50,7 @@ const BrainStormingPage = () => {
         </h1>
       </header>
       <main className="brain-storming-main">
+        <h2 className="brain-storming-h2">Brain Storming Section:</h2>
         <section className="brain-storming-ideas">
           {ideas.map((idea, index) => (
             <div key={index} className="brain-storming-idea">
@@ -68,6 +71,7 @@ const BrainStormingPage = () => {
             value={idea}
             onChange={(e) => setIdea(e.target.value)}
             placeholder={placeholder}
+            ariaType="base"
           />
           <button
             disabled={isEditing}
@@ -79,9 +83,9 @@ const BrainStormingPage = () => {
           </button>
         </form>
         <div className="brain-storming-control-pages">
-          <CustomButton text="Previous Page" link="/instructions" />
-          <CustomButton
-            text="Next Page"
+          <CustomButton type="previous" text="Previous" link="/instructions" />
+          <CustomButton type={"next" + (ideas.length ? " active" : "")}
+            text="Next"
             onClick={handleGoingToNextPage}
             link={ideas.length ? "/voting" : ""}
           />

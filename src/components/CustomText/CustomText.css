@@ -4,7 +4,47 @@
 
 .custom-input {
   width: 100%;
-  padding: 0.4rem .3rem;
+  padding: 0.4rem .5rem;
   border: none;
   border-radius: .5rem;
+  box-shadow: 0 .2rem .4rem rgba(0, 0, 0, 0.1);
+  background-color: var(--clr-neutral-100);
+  color: var(--clr-neutral-800);
+  font-weight: var(--fw-semibold);
+  font-size: 1rem;
+  caret-color: var(--clr-neutral-500);
+}
+
+.custom-input[ariaType="base"] {
+  width: 100%;
+  padding: var(--spacing-md);
+  font-size: 1rem;
+  border: 0.125rem solid var(--clr-neutral-300);
+  border-radius: 0.5rem;
+  background: var(--clr-neutral-100);
+  color: var(--clr-neutral-800);
+}
+
+.custom-input:disabled {
+  background-color: var(--clr-neutral-200);
+  color: var(--clr-neutral-500);
+  cursor: not-allowed;
+}
+
+@keyframes blink-caret {
+  from, to { 
+    caret-color: transparent; 
+  }
+  50% { 
+    caret-color: var(--clr-primary-500); 
+  }
+}
+
+.custom-input:focus {
+  outline: none;
+  box-shadow: 0 .2rem .4rem rgba(0, 0, 0, 0.2);
+}
+
+.custom-input::placeholder {
+  color: var(--clr-neutral-500);
 }

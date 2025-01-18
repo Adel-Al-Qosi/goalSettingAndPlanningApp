@@ -1,9 +1,10 @@
 import "./CustomText.css";
 
-const CustomTextarea = ({ disabled, value, onChange, placeholder }) => {
+const CustomTextarea = ({ ariaType, disabled, value, onChange, placeholder }) => {
   return (
     <div className="custom-input-container">
       <input
+        ariaType={ariaType}
         type="text"
         disabled={disabled}
         className="custom-input"
