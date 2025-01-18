@@ -1,5 +1,4 @@
 .idea {
-    background-color: var(--clr-secondary-100);
     border-radius: .5rem;
     box-shadow: 0 .2rem .4rem rgba(0, 0, 0, 0.1);
     padding:.8rem 1rem;
@@ -11,7 +10,6 @@
 }
 
 .idea:has(.idea-editing-form) {
-    
     justify-content: space-between;
 }
 
@@ -31,10 +29,10 @@
     gap: 1rem;
 }
 
-button {
+.idea-editing-buttons button {
     border: none;
-    background-color: transparent;
     font-size: small;
+    background-color: transparent;
 }
 
 button:hover {
@@ -76,4 +74,150 @@ button:hover {
 
 .idea.deleting {
     animation: fade-out 0.5s ease-in-out forwards;
+}
+
+/* Idea Cards Colors */
+.goal-sky-blue {
+  background-color: #87CEEB;
+  color: #1C2833;
+}
+
+.goal-forest-green {
+  background-color: #228B22;
+  color: #FFFFFF;
+}
+
+.goal-sunset-orange {
+  background-color: #FF4500;
+  color: #FFFFFF;
+}
+
+.goal-lemon-yellow {
+  background-color: #FFF44F;
+  color: #1C2833;
+}
+
+.goal-ocean-blue {
+  background-color: #1E90FF;
+  color: #FFFFFF;
+}
+
+.goal-rose-pink {
+  background-color: #FF69B4;
+  color: #FFFFFF;
+}
+
+.goal-sand-beige {
+  background-color: #F5DEB3;
+  color: #1C2833;
+}
+
+.goal-lavender-purple {
+  background-color: #9370DB;
+  color: #FFFFFF;
+}
+
+.goal-mint-green {
+  background-color: #98FF98;
+  color: #1C2833;
+}
+
+.goal-coral-red {
+  background-color: #FF7F50;
+  color: #1C2833;
+}
+
+.goal-charcoal-grey {
+  background-color: #36454F;
+  color: #FFFFFF;
+}
+
+.goal-amber {
+  background-color: #FFBF00;
+  color: #1C2833;
+}
+
+.goal-turquoise {
+  background-color: #40E0D0;
+  color: #1C2833;
+}
+
+.goal-peach {
+  background-color: #FFDAB9;
+  color: #1C2833;
+}
+
+.goal-plum {
+  background-color: #DDA0DD;
+  color: #1C2833;
+}
+
+.goal-aqua {
+  background-color: #00FFFF;
+  color: #1C2833;
+}
+
+.goal-olive-green {
+  background-color: #556B2F;
+  color: #FFFFFF;
+}
+
+.goal-maroon {
+  background-color: #800000;
+  color: #FFFFFF;
+}
+
+.goal-cherry-red {
+  background-color: #DE3163;
+  color: #FFFFFF;
+}
+
+.goal-teal {
+  background-color: #008080;
+  color: #FFFFFF;
+}
+
+.goal-saffron {
+  background-color: #F4C430;
+  color: #1C2833;
+}
+
+.goal-violet {
+  background-color: #8A2BE2;
+  color: #FFFFFF;
+}
+
+.goal-azure {
+  background-color: #007FFF;
+  color: #FFFFFF;
+}
+
+.goal-periwinkle {
+  background-color: #CCCCFF;
+  color: #1C2833;
+}
+
+.goal-cream {
+  background-color: #FFFDD0;
+  color: #1C2833;
+}
+
+.goal-cinnamon {
+  background-color: #D2691E;
+  color: #FFFFFF;
+}
+
+.goal-sapphire {
+  background-color: #0F52BA;
+  color: #FFFFFF;
+}
+
+.goal-emerald {
+  background-color: #50C878;
+  color: #1C2833;
+}
+
+.goal-indigo {
+  background-color: #4B0082;
+  color: #FFFFFF;
 }

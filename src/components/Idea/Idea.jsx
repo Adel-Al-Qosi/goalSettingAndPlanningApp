@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { loadIdeas } from "../../store/reducers/ideas";
 import CustomText from "../CustomText/CustomText";
+import colorClasses from "./colors";
 import "./Idea.css";
 
 const Idea = ({
@@ -16,6 +17,10 @@ const Idea = ({
   const [newIdea, setNewIdea] = useState(idea);
   const [placeholder, setPlaceholder] = useState("Enter your idea here");
   const [isDeleting, setIsDeleting] = useState(false);
+  const [colorClass, setColorClass] = useState('');
+  useEffect(() => {
+    setColorClass(getRandomColorClass());
+  }, [])
 
   const dispatch = useDispatch();
 
@@ -52,15 +57,28 @@ const Idea = ({
     deleteIdea(index);
   };
 
+  const getRandomColorClass = () =>
+    colorClasses[Math.floor(Math.random() * colorClasses.length)];
+
   return (
-    <div className={"idea" + (isDeleting ? " deleting" : "")}>
+    <div
+      className={"idea" + (isDeleting ? " deleting" : "") + " " + colorClass}
+    >
       <div className="idea-content">{!isEditingChild && idea}</div>
       {(!isEditingChild && (
         <div className="idea-editing-buttons">
-          <button disabled={isEditing} onClick={(e) => handleDelete(e)}>
+          <button
+            className={colorClass}
+            disabled={isEditing}
+            onClick={(e) => handleDelete(e)}
+          >
             Delete
           </button>
-          <button disabled={isEditing} onClick={() => handleEdit()}>
+          <button
+            className={colorClass}
+            disabled={isEditing}
+            onClick={() => handleEdit()}
+          >
             Edit
           </button>
         </div>
@@ -73,8 +91,17 @@ const Idea = ({
             onChange={(e) => setNewIdea(e.target.value)}
           />
           <div className="idea-editing-buttons">
-            <button onClick={(e) => handleCancelingChange(e)}>Cancel</button>
-            <button type="submit" onClick={(e) => handleSave(e, newIdea)}>
+            <button
+              className={colorClass}
+              onClick={(e) => handleCancelingChange(e)}
+            >
+              Cancel
+            </button>
+            <button
+              className={colorClass}
+              type="submit"
+              onClick={(e) => handleSave(e, newIdea)}
+            >
               Save
             </button>
           </div>
