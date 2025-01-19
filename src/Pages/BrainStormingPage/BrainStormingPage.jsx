@@ -42,6 +42,8 @@ const BrainStormingPage = () => {
     }
   };
 
+  console.log(ideas);
+
   return (
     <div className="brain-storming-page">
       <header className="brain-storming-header">

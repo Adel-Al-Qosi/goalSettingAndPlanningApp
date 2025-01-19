@@ -31,4 +31,7 @@ const colorClasses = [
   "goal-indigo",
 ];
 
-export default colorClasses;
+const getRandomColorClass = () =>
+  colorClasses[Math.floor(Math.random() * colorClasses.length)];
+
+export default getRandomColorClass;

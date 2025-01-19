@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { loadIdeas } from "../../store/reducers/ideas";
 import CustomText from "../CustomText/CustomText";
-import colorClasses from "./colors";
 import "./Idea.css";
 
 const Idea = ({
@@ -17,11 +16,6 @@ const Idea = ({
   const [newIdea, setNewIdea] = useState(idea);
   const [placeholder, setPlaceholder] = useState("Enter your idea here");
   const [isDeleting, setIsDeleting] = useState(false);
-  const [colorClass, setColorClass] = useState('');
-  
-  useEffect(() => {
-    setColorClass(getRandomColorClass());
-  }, [])
 
   const dispatch = useDispatch();
 
@@ -57,33 +51,31 @@ const Idea = ({
     deleteIdea(index);
   };
 
-  const getRandomColorClass = () =>
-    colorClasses[Math.floor(Math.random() * colorClasses.length)];
-
   const handleTextChange = (e) => {
     const newIdea = {
       text: e.target.value,
       id: idea.id,
+      colorClass: idea.colorClass,
     };
     setNewIdea(newIdea);
   };
 
   return (
     <div
-      className={"idea" + (isDeleting ? " deleting" : "") + " " + colorClass}
+      className={"idea" + (isDeleting ? " deleting" : "") + " " + idea.colorClass}
     >
       <div className="idea-content">{!isEditingChild && idea.text}</div>
       {(!isEditingChild && (
         <div className="idea-editing-buttons">
           <button
-            className={colorClass}
+            className={idea.colorClass}
             disabled={isEditing}
             onClick={() => handleDelete()}
           >
             Delete
           </button>
           <button
-            className={colorClass}
+            className={idea.colorClass}
             disabled={isEditing}
             onClick={() => handleEdit()}
           >
@@ -100,13 +92,13 @@ const Idea = ({
           />
           <div className="idea-editing-buttons">
             <button
-              className={colorClass}
+              className={idea.colorClass}
               onClick={(e) => handleCancelingChange(e)}
             >
               Cancel
             </button>
             <button
-              className={colorClass}
+              className={idea.colorClass}
               type="submit"
               onClick={(e) => handleSave(e, newIdea)}
             >

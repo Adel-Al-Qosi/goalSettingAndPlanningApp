@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import getRandomColorClass from "../../colors";
 
 const initialState = {
   entries: [],
@@ -19,10 +20,12 @@ const ideasSlice = createSlice({
       state.entries.push({
         text: action.payload,
         id: state.entries.length + 1,
+        colorClass: getRandomColorClass(),
       });
       state.unfilteredEntries.push({
         text: action.payload,
         id: state.unfilteredEntries.length + 1,
+        colorClass: getRandomColorClass(),
       });
     },
     
