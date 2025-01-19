@@ -18,6 +18,7 @@ const Idea = ({
   const [placeholder, setPlaceholder] = useState("Enter your idea here");
   const [isDeleting, setIsDeleting] = useState(false);
   const [colorClass, setColorClass] = useState('');
+  
   useEffect(() => {
     setColorClass(getRandomColorClass());
   }, [])
@@ -26,7 +27,7 @@ const Idea = ({
 
   const handleSave = (e) => {
     e.preventDefault();
-    if (newIdea) {
+    if (newIdea.text) {
       const updatedIdeas = ideas.map((idea, i) =>
         i === index ? newIdea : idea
       );
@@ -51,8 +52,7 @@ const Idea = ({
     setIsEditingChild(true);
   };
 
-  const handleDelete = (e) => {
-    e.preventDefault();
+  const handleDelete = () => {
     setIsDeleting(true);
     deleteIdea(index);
   };
@@ -60,17 +60,25 @@ const Idea = ({
   const getRandomColorClass = () =>
     colorClasses[Math.floor(Math.random() * colorClasses.length)];
 
+  const handleTextChange = (e) => {
+    const newIdea = {
+      text: e.target.value,
+      id: idea.id,
+    };
+    setNewIdea(newIdea);
+  };
+
   return (
     <div
       className={"idea" + (isDeleting ? " deleting" : "") + " " + colorClass}
     >
-      <div className="idea-content">{!isEditingChild && idea}</div>
+      <div className="idea-content">{!isEditingChild && idea.text}</div>
       {(!isEditingChild && (
         <div className="idea-editing-buttons">
           <button
             className={colorClass}
             disabled={isEditing}
-            onClick={(e) => handleDelete(e)}
+            onClick={() => handleDelete()}
           >
             Delete
           </button>
@@ -87,8 +95,8 @@ const Idea = ({
           <CustomText
             placeholder={placeholder}
             disabled={false}
-            value={newIdea}
-            onChange={(e) => setNewIdea(e.target.value)}
+            value={newIdea.text}
+            onChange={(e) => handleTextChange(e)}
           />
           <div className="idea-editing-buttons">
             <button

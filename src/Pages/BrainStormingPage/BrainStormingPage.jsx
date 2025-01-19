@@ -53,7 +53,7 @@ const BrainStormingPage = () => {
         <h2 className="brain-storming-h2">Brain Storming Section:</h2>
         <section className="brain-storming-ideas">
           {ideas.map((idea, index) => (
-            <div key={index} className="brain-storming-idea">
+            <div key={idea.id} className="brain-storming-idea">
               <Idea
                 isEditing={isEditing}
                 setIsEditing={setIsEditing}
@@ -71,7 +71,7 @@ const BrainStormingPage = () => {
             value={idea}
             onChange={(e) => setIdea(e.target.value)}
             placeholder={placeholder}
-            ariaType="base"
+            texttype="base"
           />
           <button
             disabled={isEditing}

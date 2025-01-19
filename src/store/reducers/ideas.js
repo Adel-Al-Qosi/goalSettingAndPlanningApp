@@ -16,8 +16,14 @@ const ideasSlice = createSlice({
       state.isLoading = false;
     },
     addIdea: (state, action) => {
-      state.entries.push(action.payload);
-      state.unfilteredEntries.push(action.payload);
+      state.entries.push({
+        text: action.payload,
+        id: state.entries.length + 1,
+      });
+      state.unfilteredEntries.push({
+        text: action.payload,
+        id: state.unfilteredEntries.length + 1,
+      });
     },
     
   },
