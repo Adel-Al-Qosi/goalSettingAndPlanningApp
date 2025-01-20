@@ -116,9 +116,9 @@ ul {
 }
 
 .instructions-page-instructions li:nth-child(3) {
-  animation: fadeIn 1s ease-out;
+  animation: fadeIn 1.1s ease-out;
 }
 
 .instructions-page-instructions li:last-child {
-  animation: fadeIn 1.2s ease-out;
+  animation: fadeIn 1.4s ease-out;
 }

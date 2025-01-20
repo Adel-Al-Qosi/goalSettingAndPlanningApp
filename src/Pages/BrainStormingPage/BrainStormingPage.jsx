@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Idea from "../../components/Idea/Idea";
 import { addIdea, loadIdeas } from "../../store/reducers/ideas";
@@ -14,6 +14,10 @@ const BrainStormingPage = () => {
   const [idea, setIdea] = useState("");
   const [placeholder, setPlaceholder] = useState("Enter your idea here");
 
+  useEffect(() => {
+      window.scrollTo(0, 0);
+    }, [])
+
   const deleteIdea = (index) => {
     setTimeout(() => {
       const newIdeas = ideas.filter((_, i) => i !== index);
@@ -25,24 +29,21 @@ const BrainStormingPage = () => {
     e.preventDefault();
 
     if (idea) {
+      if (idea.replace(/\s/g, '') === '') {
+      setPlaceholder("Please enter an idea first!");
+      setIdea('')
+      return;
+      }
+
+      const newIdea = idea.replace(/\s+/g, ' ').trim();
       setIsEditing(false);
-      dispatch(addIdea(idea));
+      dispatch(addIdea(newIdea));
       setIdea("");
       setPlaceholder("Enter your idea here");
     } else {
       setPlaceholder("Please enter an idea first!");
     }
   };
-
-  const handleGoingToNextPage = () => {
-    if (ideas.length) {
-      dispatch(loadIdeas(ideas));
-    } else {
-      setPlaceholder("Please enter an idea first!");
-    }
-  };
-
-  console.log(ideas);
 
   return (
     <div className="brain-storming-page">
@@ -88,7 +89,6 @@ const BrainStormingPage = () => {
           <CustomButton type="previous" text="Previous" link="/instructions" />
           <CustomButton type={"next" + (ideas.length ? " active" : "")}
             text="Next"
-            onClick={handleGoingToNextPage}
             link={ideas.length ? "/voting" : ""}
           />
         </div>

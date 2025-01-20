@@ -46,6 +46,12 @@
   margin-left: var(--spacing-sm);
 }
 
+.custom-button-next.disabled, .custom-button-next.disabled:hover {
+  background-color: var(--clr-primary-300);
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
 .custom-button-previous:hover, .custom-button-next:hover {
   background: var(--clr-primary-600);
   box-shadow: 0 0 1.1rem var(--clr-primary-600);

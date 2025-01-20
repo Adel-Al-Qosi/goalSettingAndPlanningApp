@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { loadIdeas } from "../../store/reducers/ideas";
 import CustomText from "../CustomText/CustomText";
+import { motion } from "motion/react";
 import "./Idea.css";
 
 const Idea = ({
@@ -11,6 +12,7 @@ const Idea = ({
   index,
   deleteIdea,
   ideas,
+  additionalClassName,
 }) => {
   const [isEditingChild, setIsEditingChild] = useState(false);
   const [newIdea, setNewIdea] = useState(idea);
@@ -61,12 +63,40 @@ const Idea = ({
   };
 
   return (
-    <div
-      className={"idea" + (isDeleting ? " deleting" : "") + " " + idea.colorClass}
+    <motion.div
+      animate={
+        additionalClassName && {
+          opacity: 1,
+          y: 0,
+          transition: {
+            duration: 0.4,
+            delay: 0.3 * idea.id,
+          },
+        }
+      }
+      initial={
+        additionalClassName && {
+          opacity: 0,
+          y: 12,
+        }
+      }
+      className={
+        "idea" +
+        (isDeleting ? " deleting" : "") +
+        " " +
+        idea.colorClass +
+        " " +
+        (additionalClassName || "")
+      }
     >
       <div className="idea-content">{!isEditingChild && idea.text}</div>
       {(!isEditingChild && (
-        <div className="idea-editing-buttons">
+        <div
+          className={
+            "idea-editing-buttons" +
+            (additionalClassName ? " " + additionalClassName : "")
+          }
+        >
           <button
             className={idea.colorClass}
             disabled={isEditing}
@@ -107,7 +137,7 @@ const Idea = ({
           </div>
         </form>
       )}
-    </div>
+    </motion.div>
   );
 };
 
